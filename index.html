@@ -1,0 +1,1218 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" style="max-height: 100%;height: 100%;">
+    <head>
+        <title>Ftmlor Designer</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="FroatX">
+        <meta name="keywords" content="Ftmlor,FroatX">
+        <meta name="description" content="Ftmlor,可视化html编写">
+
+        <link rel="shortcut icon" href="img/ylnx.jpg">
+        <link rel="stylesheet" type="text/css" href="css/Fro UI.css">
+        <link rel="stylesheet" type="text/css" href="css/Base.css">
+        <script src="javascript/Jquery.js"></script>
+        <script src="javascript/Fro JS.js"></script>
+	    <script src="javascript/Base.js"></script>
+    </head>
+
+    <body>
+        <div class="Fro-page">
+            <div class="Fro-page-header">
+                <div class="Fro-page-item-on" id="Design-Page">
+                    Design
+                </div>
+                <div class="Fro-page-item" id="Source-Page">
+                    Source
+                </div>
+                <div class="Fro-page-item" id="More-Page">
+                    More
+                </div>
+            </div>
+            <div class="Fro-page-body-on Document" id="Design-Page-page-body" style="border: none;">
+                <div class="BG">
+                    <p>Ftmlor Designer</p>
+                </div>
+                <div class="Fro-panel Fro-moveBox" style="width:200px;" id="ToolBox">
+                    <div class="Fro-panel-title">
+                        <i title="还原工具箱" class="Fro-icon-wrong" style="float: right;cursor: pointer;" onclick="HideToolBox(this)"></i>
+                        <h4>工具箱</h4>
+                    </div>
+                    <div class="Fro-panel-body">
+                        <div class="Fro-selectBox" id="Panel-Html-tag">Html Tag</div>
+                        <div class="Fro-selectBox-body" id="Panel-Html-tag-select-body">
+                            <div class="Fro-selectBox-option">
+                                <hr>
+                                <p>输入tag名：</p>
+                                <p id="Id-name" type="text" class="Fro-input-text-Box-pink" contenteditable="true" style="background: white;margin-bottom: 1px;"></p>
+                                <button class="Fro-primary-btn-sm" style="width: 100%;" onclick="Add_Tag($('#Id-name').text())">添加自定义Tag</button>
+                            </div>
+                        </div>
+        
+                        <div class="Fro-selectBox" id="Panel-Container">Panel / Container</div>
+                        <div class="Fro-selectBox-body" id="Panel-Container-select-body">
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-selectBox" id="Container">Container</div>
+                                <div class="Fro-selectBox-body" id="Container-select-body">
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-project-item" onclick="AddMod($(this).text())">
+                                            Container
+                                        </div>
+                                    </div>
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-project-item" onclick="AddMod($(this).text())">
+                                            Main
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-selectBox" id="Panel">Panel</div>
+                                <div class="Fro-selectBox-body" id="Panel-select-body">
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-selectBox" id="Panel-Crossrange">Crossrange</div>
+                                        <div class="Fro-selectBox-body" id="Panel-Crossrange-select-body">
+                                            <div class="Fro-selectBox-option">
+                                                <div class="Fro-project-item" onclick="AddMod($(this).text())">
+                                                    Crossrange
+                                                </div>
+                                            </div>
+                                            <div class="Fro-selectBox-option">
+                                                <div class="Fro-project-item" onclick="AddMod($(this).text())">
+                                                    Crossrange-Head
+                                                </div>
+                                            </div>
+                                            <div class="Fro-selectBox-option">
+                                                <div class="Fro-project-item" onclick="AddMod($(this).text())">
+                                                    Crossrange-Body
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-project-item" onclick="AddMod($(this).text())">
+                                            Middle-Panel
+                                        </div>
+                                    </div>
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-project-item" onclick="AddMod($(this).text())">
+                                            Panel
+                                        </div>
+                                    </div>
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-project-item" onclick="AddMod($(this).text())">
+                                            Panel-Title
+                                        </div>
+                                    </div>
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-project-item" onclick="AddMod($(this).text())">
+                                            Panel-Body
+                                        </div>
+                                    </div>
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-project-item" onclick="AddMod($(this).text())">
+                                            Panel-Footer
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-project-item" onclick="AddMod($(this).text())">
+                                            MSGBox
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="Fro-selectBox" id="Nav-SideBar">Nav / SideBar</div>
+                        <div class="Fro-selectBox-body" id="Nav-SideBar-select-body">
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-selectBox" id="Nav">Nav</div>
+                                <div class="Fro-selectBox-body" id="Nav-select-body">
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-project-item" onclick="AddMod($(this).text())">
+                                            Header
+                                        </div>
+                                    </div>
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-project-item" onclick="AddMod($(this).text())">
+                                            Nav
+                                        </div>
+                                    </div>
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-project-item" onclick="AddMod($(this).text())">
+                                            Nav-Item
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-selectBox" id="SideBar">SideBar</div>
+                                <div class="Fro-selectBox-body" id="SideBar-select-body">
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-project-item" onclick="AddMod($(this).text())">
+                                            SideBar-Fixed
+                                        </div>
+                                    </div>
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-project-item" onclick="AddMod($(this).text())">
+                                            SideBar-Absolute
+                                        </div>
+                                    </div>
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-project-item" onclick="AddMod($(this).text())">
+                                            SideBar-Vertical
+                                        </div>
+                                    </div>
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-project-item" onclick="AddMod($(this).text())">
+                                            SideBar-Item
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="Fro-selectBox" id="Button">Button</div>
+                        <div class="Fro-selectBox-body" id="Button-select-body">
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-selectBox" id="Button-Full">Button-Full</div>
+                                <div class="Fro-selectBox-body" id="Button-Full-select-body">
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-selectBox" id="Button-Full-Round-Border">Round-Border</div>
+                                        <div class="Fro-selectBox-body" id="Button-Full-Round-Border-select-body">
+                                            <div class="Fro-selectBox-option">
+                                                <div class="Fro-selectBox" id="Button-Full-Round-Border-Large">Large</div>
+                                                <div class="Fro-selectBox-body" id="Button-Full-Round-Border-Large-select-body">
+                                                    <div class="Fro-selectBox-option">
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Round-Border-Large-Pink')">
+                                                            Pink
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Round-Border-Large-Blue')">
+                                                            Blue
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Round-Border-Large-Red')">
+                                                            Red
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Round-Border-Large-Green')">
+                                                            Green
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Round-Border-Large-Gold')">
+                                                            Gold
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Round-Border-Large-LightWhite')">
+                                                            LightWhite
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="Fro-selectBox-option">
+                                                <div class="Fro-selectBox" id="Button-Full-Round-Border-Middle">Middle</div>
+                                                <div class="Fro-selectBox-body" id="Button-Full-Round-Border-Middle-select-body">
+                                                    <div class="Fro-selectBox-option">
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Round-Border-Middle-Pink')">
+                                                            Pink
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Round-Border-Middle-Blue')">
+                                                            Blue
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Round-Border-Middle-Red')">
+                                                            Red
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Round-Border-Middle-Green')">
+                                                            Green
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Round-Border-Middle-Gold')">
+                                                            Gold
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Round-Border-Middle-LightWhite')">
+                                                            LightWhite
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="Fro-selectBox-option">
+                                                <div class="Fro-selectBox" id="Button-Full-Round-Border-Small">Small</div>
+                                                <div class="Fro-selectBox-body" id="Button-Full-Round-Border-Small-select-body">
+                                                    <div class="Fro-selectBox-option">
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Round-Border-Small-Pink')">
+                                                            Pink
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Round-Border-Small-Blue')">
+                                                            Blue
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Round-Border-Small-Red')">
+                                                            Red
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Round-Border-Small-Green')">
+                                                            Green
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Round-Border-Small-Gold')">
+                                                            Gold
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Round-Border-Small-LightWhite')">
+                                                            LightWhite
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-selectBox" id="Button-Full-Square-Border">Square-Border</div>
+                                        <div class="Fro-selectBox-body" id="Button-Full-Square-Border-select-body">
+                                            <div class="Fro-selectBox-option">
+                                                <div class="Fro-selectBox" id="Button-Full-Square-Border-Large">Large</div>
+                                                <div class="Fro-selectBox-body" id="Button-Full-Square-Border-Large-select-body">
+                                                    <div class="Fro-selectBox-option">
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Square-Border-Large-Pink')">
+                                                            Pink
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Square-Border-Large-Blue')">
+                                                            Blue
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Square-Border-Large-Red')">
+                                                            Red
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Square-Border-Large-Green')">
+                                                            Green
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Square-Border-Large-Gold')">
+                                                            Gold
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Square-Border-Large-LightWhite')">
+                                                            LightWhite
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="Fro-selectBox-option">
+                                                <div class="Fro-selectBox" id="Button-Full-Square-Border-Middle">Middle</div>
+                                                <div class="Fro-selectBox-body" id="Button-Full-Square-Border-Middle-select-body">
+                                                    <div class="Fro-selectBox-option">
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Square-Border-Middle-Pink')">
+                                                            Pink
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Square-Border-Middle-Blue')">
+                                                            Blue
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Square-Border-Middle-Red')">
+                                                            Red
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Square-Border-Middle-Green')">
+                                                            Green
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Square-Border-Middle-Gold')">
+                                                            Gold
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Square-Border-Middle-LightWhite')">
+                                                            LightWhite
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="Fro-selectBox-option">
+                                                <div class="Fro-selectBox" id="Button-Full-Square-Border-Small">Small</div>
+                                                <div class="Fro-selectBox-body" id="Button-Full-Square-Border-Small-select-body">
+                                                    <div class="Fro-selectBox-option">
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Square-Border-Small-Pink')">
+                                                            Pink
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Square-Border-Small-Blue')">
+                                                            Blue
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Square-Border-Small-Red')">
+                                                            Red
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Square-Border-Small-Green')">
+                                                            Green
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Square-Border-Small-Gold')">
+                                                            Gold
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Full-Square-Border-Small-LightWhite')">
+                                                            LightWhite
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-selectBox" id="Button-Empty">Button-Empty</div>
+                                <div class="Fro-selectBox-body" id="Button-Empty-select-body">
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-selectBox" id="Button-Empty-Round-Border">Round-Border</div>
+                                        <div class="Fro-selectBox-body" id="Button-Empty-Round-Border-select-body">
+                                            <div class="Fro-selectBox-option">
+                                                <div class="Fro-selectBox" id="Button-Empty-Round-Border-Large">Large</div>
+                                                <div class="Fro-selectBox-body" id="Button-Empty-Round-Border-Large-select-body">
+                                                    <div class="Fro-selectBox-option">
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Round-Border-Large-Pink')">
+                                                            Pink
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Round-Border-Large-Blue')">
+                                                            Blue
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Round-Border-Large-Red')">
+                                                            Red
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Round-Border-Large-Green')">
+                                                            Green
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Round-Border-Large-Gold')">
+                                                            Gold
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Round-Border-Large-LightWhite')">
+                                                            LightWhite
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="Fro-selectBox-option">
+                                                <div class="Fro-selectBox" id="Button-Empty-Round-Border-Middle">Middle</div>
+                                                <div class="Fro-selectBox-body" id="Button-Empty-Round-Border-Middle-select-body">
+                                                    <div class="Fro-selectBox-option">
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Round-Border-Middle-Pink')">
+                                                            Pink
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Round-Border-Middle-Blue')">
+                                                            Blue
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Round-Border-Middle-Red')">
+                                                            Red
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Round-Border-Middle-Green')">
+                                                            Green
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Round-Border-Middle-Gold')">
+                                                            Gold
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Round-Border-Middle-LightWhite')">
+                                                            LightWhite
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="Fro-selectBox-option">
+                                                <div class="Fro-selectBox" id="Button-Empty-Round-Border-Small">Small</div>
+                                                <div class="Fro-selectBox-body" id="Button-Empty-Round-Border-Small-select-body">
+                                                    <div class="Fro-selectBox-option">
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Round-Border-Small-Pink')">
+                                                            Pink
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Round-Border-Small-Blue')">
+                                                            Blue
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Round-Border-Small-Red')">
+                                                            Red
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Round-Border-Small-Green')">
+                                                            Green
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Round-Border-Small-Gold')">
+                                                            Gold
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Round-Border-Small-LightWhite')">
+                                                            LightWhite
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-selectBox" id="Button-Empty-Square-Border">Square-Border</div>
+                                        <div class="Fro-selectBox-body" id="Button-Empty-Square-Border-select-body">
+                                            <div class="Fro-selectBox-option">
+                                                <div class="Fro-selectBox" id="Button-Empty-Square-Border-Large">Large</div>
+                                                <div class="Fro-selectBox-body" id="Button-Empty-Square-Border-Large-select-body">
+                                                    <div class="Fro-selectBox-option">
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Square-Border-Large-Pink')">
+                                                            Pink
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Square-Border-Large-Blue')">
+                                                            Blue
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Square-Border-Large-Red')">
+                                                            Red
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Square-Border-Large-Green')">
+                                                            Green
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Square-Border-Large-Gold')">
+                                                            Gold
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Square-Border-Large-LightWhite')">
+                                                            LightWhite
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="Fro-selectBox-option">
+                                                <div class="Fro-selectBox" id="Button-Empty-Square-Border-Middle">Middle</div>
+                                                <div class="Fro-selectBox-body" id="Button-Empty-Square-Border-Middle-select-body">
+                                                    <div class="Fro-selectBox-option">
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Square-Border-Middle-Pink')">
+                                                            Pink
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Square-Border-Middle-Blue')">
+                                                            Blue
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Square-Border-Middle-Red')">
+                                                            Red
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Square-Border-Middle-Green')">
+                                                            Green
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Square-Border-Middle-Gold')">
+                                                            Gold
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Square-Border-Middle-LightWhite')">
+                                                            LightWhite
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="Fro-selectBox-option">
+                                                <div class="Fro-selectBox" id="Button-Empty-Square-Border-Small">Small</div>
+                                                <div class="Fro-selectBox-body" id="Button-Empty-Square-Border-Small-select-body">
+                                                    <div class="Fro-selectBox-option">
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Square-Border-Small-Pink')">
+                                                            Pink
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Square-Border-Small-Blue')">
+                                                            Blue
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Square-Border-Small-Red')">
+                                                            Red
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Square-Border-Small-Green')">
+                                                            Green
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Square-Border-Small-Gold')">
+                                                            Gold
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Empty-Square-Border-Small-LightWhite')">
+                                                            LightWhite
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-selectBox" id="Button-Special">Button-Special</div>
+                                <div class="Fro-selectBox-body" id="Button-Special-select-body">
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-selectBox" id="Button-Special-Disabled-Button">Disabled-Button</div>
+                                        <div class="Fro-selectBox-body" id="Button-Special-Disabled-Button-select-body">
+                                            <div class="Fro-selectBox-option">
+                                                <div class="Fro-selectBox" id="Button-Special-Disabled-Button-Round">Round</div>
+                                                <div class="Fro-selectBox-body" id="Button-Special-Disabled-Button-Round-select-body">
+                                                    <div class="Fro-selectBox-option">
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Disabled-Button-Round-Large')">
+                                                            Large
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Disabled-Button-Round-Middle')">
+                                                            Middle
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Disabled-Button-Round-Small')">
+                                                            Small
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="Fro-selectBox-option">
+                                                <div class="Fro-selectBox" id="Button-Special-Disabled-Button-Square">Square</div>
+                                                <div class="Fro-selectBox-body" id="Button-Special-Disabled-Button-Square-select-body">
+                                                    <div class="Fro-selectBox-option">
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Disabled-Button-Square-Large')">
+                                                            Large
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Disabled-Button-Square-Middle')">
+                                                            Middle
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Button-Disabled-Button-Square-Small')">
+                                                            Small
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-project-item" onclick="AddMod('Button-Group')">
+                                            Button-Group
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="Fro-selectBox" id="Input">Input</div>
+                        <div class="Fro-selectBox-body" id="Input-select-body">
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-selectBox" id="Input-Text">Text</div>
+                                <div class="Fro-selectBox-body" id="Input-Text-select-body">
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-selectBox" id="Input-Text-Box">Text-Box</div>
+                                        <div class="Fro-selectBox-body" id="Input-Text-Box-select-body">
+                                            <div class="Fro-selectBox-option">
+                                                <div class="Fro-selectBox" id="Input-Text-Box-Round-Border">Round-Border</div>
+                                                <div class="Fro-selectBox-body" id="Input-Text-Box-Round-Border-select-body">
+                                                    <div class="Fro-selectBox-option">
+                                                        <div class="Fro-project-item" onclick="AddMod('Input-Text-Box-Round-Border-Pink')">
+                                                            Pink
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Input-Text-Box-Round-Border-Blue')">
+                                                            Blue
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Input-Text-Box-Round-Border-Red')">
+                                                            Red
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Input-Text-Box-Round-Border-Green')">
+                                                            Green
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Input-Text-Box-Round-Border-Gold')">
+                                                            Gold
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Input-Text-Box-Round-Border-LightWhite')">
+                                                            LightWhite
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+        
+                                            <div class="Fro-selectBox-option">
+                                                <div class="Fro-selectBox" id="Input-Text-Box-Square-Border">Square-Border</div>
+                                                <div class="Fro-selectBox-body" id="Input-Text-Box-Square-Border-select-body">
+                                                    <div class="Fro-selectBox-option">
+                                                        <div class="Fro-project-item" onclick="AddMod('Input-Text-Box-Square-Border-Pink')">
+                                                            Pink
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Input-Text-Box-Square-Border-Blue')">
+                                                            Blue
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Input-Text-Box-Square-Border-Red')">
+                                                            Red
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Input-Text-Box-Square-Border-Green')">
+                                                            Green
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Input-Text-Box-Square-Border-Gold')">
+                                                            Gold
+                                                        </div>
+                                                        <div class="Fro-project-item" onclick="AddMod('Input-Text-Box-Square-Border-LightWhite')">
+                                                            LightWhite
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-selectBox" id="Input-Text-Line">Text-Line</div>
+                                        <div class="Fro-selectBox-body" id="Input-Text-Line-select-body">
+                                            <div class="Fro-selectBox-option">
+                                                <div class="Fro-project-item" onclick="AddMod('Input-Text-Line-Pink')">
+                                                    Pink
+                                                </div>
+                                                <div class="Fro-project-item" onclick="AddMod('Input-Text-Line-Blue')">
+                                                    Blue
+                                                </div>
+                                                <div class="Fro-project-item" onclick="AddMod('Input-Text-Line-Red')">
+                                                    Red
+                                                </div>
+                                                <div class="Fro-project-item" onclick="AddMod('Input-Text-Line-Green')">
+                                                    Green
+                                                </div>
+                                                <div class="Fro-project-item" onclick="AddMod('Input-Text-Line-Gold')">
+                                                    Gold
+                                                </div>
+                                                <div class="Fro-project-item" onclick="AddMod('Input-Text-Line-LightWhite')">
+                                                    LightWhite
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-selectBox" id="Input-Text-Special">Text-Special</div>
+                                        <div class="Fro-selectBox-body" id="Input-Text-Special-select-body">
+                                            <div class="Fro-selectBox-option">
+                                                <div class="Fro-selectBox" id="Input-Text-Special-SearchBox">SearchBox</div>
+                                                <div class="Fro-selectBox-body" id="Input-Text-Special-SearchBox-select-body">
+                                                    <div class="Fro-selectBox-option">
+                                                        <div class="Fro-selectBox" id="Input-Text-Special-SearchBox-Round-Border">Round-Border</div>
+                                                        <div class="Fro-selectBox-body" id="Input-Text-Special-SearchBox-Round-Border-select-body">
+                                                            <div class="Fro-selectBox-option">
+                                                                <div class="Fro-project-item" onclick="AddMod('Input-Text-Special-SearchBox-Round-Border')">
+                                                                    SearchBox
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="Fro-selectBox-option">
+                                                        <div class="Fro-selectBox" id="Input-Text-Special-SearchBox-Square-Border">Square-Border</div>
+                                                        <div class="Fro-selectBox-body" id="Input-Text-Special-SearchBox-Square-Border-select-body">
+                                                            <div class="Fro-selectBox-option">
+                                                                <div class="Fro-project-item" onclick="AddMod('Input-Text-Special-SearchBox-Square-Border')">
+                                                                    SearchBox
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="Fro-selectBox-option">
+                                                <div class="Fro-project-item" onclick="AddMod('Input-Text-Special-Textarea')">
+                                                    Textarea
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="Fro-selectBox" id="Board">Board</div>
+                        <div class="Fro-selectBox-body" id="Board-select-body">
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod($(this).text())">
+                                    Middle-Board
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod($(this).text())">
+                                    Img-Board
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod($(this).text())">
+                                    Video-Board
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="Fro-selectBox" id="Badge">Badge</div>
+                        <div class="Fro-selectBox-body" id="Badge-select-body">
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-selectBox" id="Badge-Full">Badge-Full</div>
+                                <div class="Fro-selectBox-body" id="Badge-Full-select-body">
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-project-item" onclick="AddMod('Badge-Full-Pink')">
+                                            Pink
+                                        </div>
+                                        <div class="Fro-project-item" onclick="AddMod('Badge-Full-Blue')">
+                                            Blue
+                                        </div>
+                                        <div class="Fro-project-item" onclick="AddMod('Badge-Full-Red')">
+                                            Red
+                                        </div>
+                                        <div class="Fro-project-item" onclick="AddMod('Badge-Full-Green')">
+                                            Green
+                                        </div>
+                                        <div class="Fro-project-item" onclick="AddMod('Badge-Full-Gold')">
+                                            Gold
+                                        </div>
+                                        <div class="Fro-project-item" onclick="AddMod('Badge-Full-LightWhite')">
+                                            LightWhite
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-selectBox" id="Badge-Empty">Badge-Empty</div>
+                                <div class="Fro-selectBox-body" id="Badge-Empty-select-body">
+                                    <div class="Fro-selectBox-option">
+                                        <div class="Fro-project-item" onclick="AddMod('Badge-Empty-Pink')">
+                                            Pink
+                                        </div>
+                                        <div class="Fro-project-item" onclick="AddMod('Badge-Empty-Blue')">
+                                            Blue
+                                        </div>
+                                        <div class="Fro-project-item" onclick="AddMod('Badge-Empty-Red')">
+                                            Red
+                                        </div>
+                                        <div class="Fro-project-item" onclick="AddMod('Badge-Empty-Green')">
+                                            Green
+                                        </div>
+                                        <div class="Fro-project-item" onclick="AddMod('Badge-Empty-Gold')">
+                                            Gold
+                                        </div>
+                                        <div class="Fro-project-item" onclick="AddMod('Badge-Empty-LightWhite')">
+                                            LightWhite
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="Fro-selectBox" id="Icon">Icon</div>
+                        <div class="Fro-selectBox-body" id="Icon-select-body">
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-star')">
+                                    <i class="Fro-icon-star"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-star-o')">
+                                    <i class="Fro-icon-star-o"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-heart')">
+                                    <i class="Fro-icon-heart"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-heart-o')">
+                                    <i class="Fro-icon-heart-o"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-sun')">
+                                    <i class="Fro-icon-sun"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-plane')">
+                                    <i class="Fro-icon-plane"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-copyright')">
+                                    <i class="Fro-icon-copyright"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-correct')">
+                                    <i class="Fro-icon-correct"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-correct-bold')">
+                                    <i class="Fro-icon-correct-bold"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-wrong')">
+                                    <i class="Fro-icon-wrong"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-wrong-bold')">
+                                    <i class="Fro-icon-wrong-bold"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-ice')">
+                                    <i class="Fro-icon-ice"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-smile')">
+                                    <i class="Fro-icon-smile"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-smile-o')">
+                                    <i class="Fro-icon-smile-o"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-unsmile')">
+                                    <i class="Fro-icon-unsmile"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-mail')">
+                                    <i class="Fro-icon-mail"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-telephone')">
+                                    <i class="Fro-icon-telephone"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-telephone-bold')">
+                                    <i class="Fro-icon-telephone-bold"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-cloud')">
+                                    <i class="Fro-icon-cloud"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-umbrella')">
+                                    <i class="Fro-icon-umbrella"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-taichi')">
+                                    <i class="Fro-icon-taichi"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-cycle')">
+                                    <i class="Fro-icon-cycle"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-warning')">
+                                    <i class="Fro-icon-warning"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-lightning')">
+                                    <i class="Fro-icon-lightning"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-chemical')">
+                                    <i class="Fro-icon-chemical"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-moon')">
+                                    <i class="Fro-icon-moon"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-man')">
+                                    <i class="Fro-icon-man"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-woman')">
+                                    <i class="Fro-icon-woman"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-relay')">
+                                    <i class="Fro-icon-relay"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-arrow-right')">
+                                    <i class="Fro-icon-arrow-right"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-arrow-left')">
+                                    <i class="Fro-icon-arrow-left"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-arrow-up')">
+                                    <i class="Fro-icon-arrow-up"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-arrow-down')">
+                                    <i class="Fro-icon-arrow-down"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-arrow-UpToDown')">
+                                    <i class="Fro-icon-arrow-UpToDown"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-arrow-RightToLeft')">
+                                    <i class="Fro-icon-arrow-RightToLeft"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-triangle-up')">
+                                    <i class="Fro-icon-triangle-up"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-triangle-down')">
+                                    <i class="Fro-icon-triangle-down"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-triangle-left')">
+                                    <i class="Fro-icon-triangle-left"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-triangle-right')">
+                                    <i class="Fro-icon-triangle-right"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-note-quarter')">
+                                    <i class="Fro-icon-note-quarter"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-note-quaver')">
+                                    <i class="Fro-icon-note-quaver"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-note-quaver-double')">
+                                    <i class="Fro-icon-note-quaver-double"></i>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox-option">
+                                <div class="Fro-project-item" onclick="AddMod('Icon-note-semiquaver')">
+                                    <i class="Fro-icon-note-semiquaver"></i>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+        
+                <div class="Fro-panel Fro-moveBox" style="width:200px;" id="DefineBox">
+                    <div class="Fro-panel-title">
+                        <i title="还原属性面板" class="Fro-icon-wrong" style="float: right;cursor: pointer;" onclick="HideDefineBox(this)"></i>
+                        <h4>属性面板</h4>
+                    </div>
+                    <div class="Fro-panel-body">
+                        <div class="Fro-selectBox" id="Mod_info">Mod Info</div>
+                        <div class="Fro-selectBox-body" id="Mod_info-select-body">
+                            <div class="Fro-selectBox-option">
+                                <table class="Fro-table-simple">
+                                    <thead>
+                                        <th>项目</th>
+                                        <th>值</th>
+                                        <th>操作</th>
+                                    </thead>
+                                    <tbody id="info-tbody">
+                                    </tbody>
+                                </table>
+                                <button id="del-mod" class="Fro-primary-btn-sm" style="width: 100%;" onclick="Add_Info()">添加/修改信息</button>
+                                <button id="del-mod" class="Fro-primary-btn-sm" style="width: 100%;" onclick="DeleteMod()">删除Mod</button>
+                            </div>
+                        </div>
+        
+                        <div class="Fro-selectBox" id="Mod_Attribute">Mod Attribute</div>
+                        <div class="Fro-selectBox-body" id="Mod_Attribute-select-body">
+                            <div class="Fro-selectBox-option">
+                                <table class="Fro-table-simple">
+                                    <thead>
+                                        <th>项目</th>
+                                        <th>值</th>
+                                        <th>操作</th>
+                                    </thead>
+                                    <tbody id="attribute-tbody">
+                                    </tbody>
+                                </table>
+                                <button class="Fro-primary-btn-sm" style="width: 100%;" onclick="Add_Attribute()">添加/修改属性</button>
+                            </div>
+                        </div>
+        
+                        <div class="Fro-selectBox" id="Mod_Style">Mod Style</div>
+                        <div class="Fro-selectBox-body" id="Mod_Style-select-body">
+                            <div class="Fro-selectBox-option">
+                                <table class="Fro-table-simple">
+                                    <thead>
+                                        <th>项目</th>
+                                        <th>值</th>
+                                        <th>操作</th>
+                                    </thead>
+                                    <tbody id="style-tbody">
+                                    </tbody>
+                                </table>
+                                <button class="Fro-primary-btn-sm" style="width: 100%;" onclick="Add_Style()">添加/修改样式</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="Fro-panel Fro-moveBox" style="width:200px;" id="HandleBox">
+                    <div class="Fro-panel-title">
+                        <i title="还原操作面板" class="Fro-icon-wrong" style="float: right;cursor: pointer;" onclick="HideHandleBox(this)"></i>
+                        <h4>总操作面板</h4>
+                    </div>
+                    <div class="Fro-panel-body">
+                        <button id="ShowMBd" class="Fro-primary-btn-sm" style="width: 100%;" onclick="ChangeModBorder()">关闭Mod边框显示</button>
+                        <hr>
+                        <button class="Fro-primary-btn-sm" style="width: 100%;" onclick="Surf()">预览</button>
+                        <hr>
+                        <button class="Fro-primary-btn-sm" style="width: 100%;" onclick="SaveCode()">保存</button>
+                        <hr>
+                        <button class="Fro-primary-btn-sm" style="width: 100%;" onclick="toHtml()">输出到Html</button>
+                        <hr>
+                        <button class="Fro-primary-btn-sm" style="width: 100%;" onclick="ModMoveUp()">Mod上移</button>
+                        <hr>
+                        <button class="Fro-primary-btn-sm" style="width: 100%;" onclick="ModMoveDown()">Mod下移</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="Fro-page-body" id="Source-Page-page-body">
+                None
+            </div>
+
+            <div class="Fro-page-body" id="More-Page-page-body">
+                <div class="Fro-col-sm-6 Fro-col-md-6 Fro-col-lg-6">
+                    <div class="Fro-panel">
+                        <div class="Fro-panel-title">
+                            <h3>载入保存</h3>
+                        </div>
+                        <div class="Fro-panel-body">
+                            <p>将您保存后的数据粘贴至下方文本框内，再按下[载入保存]即可载入您保存的界面。</p>
+                            <br>
+                            <textarea id="SaveCode_box" style="width: 100%;padding: 0;" placeholder="键入数据"></textarea>
+                            <button class="Fro-primary-btn-md" style="width: 100%;" onclick="LoadSave($('#SaveCode_box').val())">载入保存</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Fro-col-sm-6 Fro-col-md-6 Fro-col-lg-6">
+                    <div class="Fro-panel">
+                        <div class="Fro-panel-title">
+                            <h3 >其它</h3>
+                        </div>
+                        <div class="Fro-panel-body">
+                            <p>Copyright <i class="Fro-icon-copyright"></i>2018 - <span id="Now_year"></span> FroatX</p>
+                            <p>Powered by Fro UI / Fro JS</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Fro-col-sm-6 Fro-col-md-6 Fro-col-lg-6">
+                    <div class="Fro-panel">
+                        <div class="Fro-panel-title">
+                            <h3 >Head设置</h3>
+                        </div>
+                        <div class="Fro-panel-body">
+                            <p>对Html中Head标签的设置</p>
+                            <br>
+                            <div class="Fro-selectBox" id="Meta">Meta</div>
+                            <div class="Fro-selectBox-body" id="Meta-select-body">
+                                <div class="Fro-selectBox-option">
+                                    <div class="Fro-selectBox" id="Meta-Name">Name</div>
+                                    <div class="Fro-selectBox-body" id="Meta-Name-select-body">
+                                        <div class="Fro-selectBox-option">
+                                            <table class="Fro-table-simple">
+                                                <thead>
+                                                    <th>项目</th>
+                                                    <th>值</th>
+                                                    <th>操作</th>
+                                                </thead>
+                                                <tbody id="meta-Name-tbody">
+                                                </tbody>
+                                            </table>
+                                            <button class="Fro-primary-btn-sm" style="width: 100%;" onclick="Add_Meta_Name()">添加/修改元数据</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="Fro-selectBox-option">
+                                    <div class="Fro-selectBox" id="Meta-Http-equiv">Http-equiv</div>
+                                    <div class="Fro-selectBox-body" id="Meta-Http-equiv-select-body">
+                                        <div class="Fro-selectBox-option">
+                                            <table class="Fro-table-simple">
+                                                <thead>
+                                                    <th>项目</th>
+                                                    <th>值</th>
+                                                    <th>操作</th>
+                                                </thead>
+                                                <tbody id="meta-Http-equiv-tbody">
+                                                </tbody>
+                                            </table>
+                                            <button class="Fro-primary-btn-sm" style="width: 100%;" onclick="Add_Meta_Http_equiv()">添加/修改元数据</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="Fro-selectBox-option">
+                                    <div class="Fro-selectBox" id="Meta-Scheme">Scheme</div>
+                                    <div class="Fro-selectBox-body" id="Meta-Scheme-select-body">
+                                        <div class="Fro-selectBox-option">
+                                            <table class="Fro-table-simple">
+                                                <thead>
+                                                    <th>项目</th>
+                                                    <th>值</th>
+                                                    <th>操作</th>
+                                                </thead>
+                                                <tbody id="meta-Scheme-tbody">
+                                                </tbody>
+                                            </table>
+                                            <button class="Fro-primary-btn-sm" style="width: 100%;" onclick="Add_Meta_Scheme()">添加/修改元数据</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="Fro-selectBox-option">
+                                    Title: <input type="text" id="Title_Box" class="Fro-input-text-Box-white" placeholder="键入Title值" value='New Project' oninput="Head_l['Title'] = $(this).val();">
+                                    Charset: <input type="text" id="charSet_Box" class="Fro-input-text-Box-white" placeholder="键入Charset值" value="UTF-8" oninput="ChangeMeta('Charset','',$(this).val(),true)">
+                                    Icon: <input type="text" id="Icon_Box" class="Fro-input-text-Box-white" placeholder="键入Icon路径" oninput="ChangeMeta('Icon','',$(this).val(),true)">
+                                </div>
+                            </div>
+                            <hr>
+                            <p>外部资源设置</p>
+                            <br>
+                            <div class="Fro-selectBox" id="CSS">CSS</div>
+                            <div class="Fro-selectBox-body" id="CSS-select-body">
+                                <div class="Fro-selectBox-option">
+                                    <table class="Fro-table-simple">
+                                        <thead>
+                                            <th>值</th>
+                                            <th>操作</th>
+                                        </thead>
+                                        <tbody id="CSS-tbody">
+                                        </tbody>
+                                    </table>
+                                    <button class="Fro-primary-btn-sm" style="width: 100%;" onclick="Add_Source('CSS')">添加CSS资源</button>
+                                </div>
+                            </div>
+                            <div class="Fro-selectBox" id="Javascript">Javascript</div>
+                            <div class="Fro-selectBox-body" id="Javascript-select-body">
+                                <div class="Fro-selectBox-option">
+                                    <table class="Fro-table-simple">
+                                        <thead>
+                                            <th>值</th>
+                                            <th>操作</th>
+                                        </thead>
+                                        <tbody id="JS-tbody">
+                                        </tbody>
+                                    </table>
+                                    <button class="Fro-primary-btn-sm" style="width: 100%;" onclick="Add_Source('JS')">添加Javascript资源</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
