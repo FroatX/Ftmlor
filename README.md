@@ -1,2 +1,2 @@
 # Daily
-Daily code.
+A Visual Web Designer(semi-manufactured)
